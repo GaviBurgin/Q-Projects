@@ -1,6 +1,6 @@
 # Q-Projects
 
-This repository is for my **risk-neutral quantitative projects**, focused on exploring theoretical frameworks and mathematical models in finance under risk-neutral assumptions. These techniques are widely used in the valuation of derivatives, hedging strategies, and market risk assessment. As I learn and grow, I'll continue adding more projects to deepen my understanding of quantitative finance and its applications.
+This repository is for my **risk-neutral quantitative projects**, focused on exploring finance under risk-neutral assumptions. These techniques are widely used in the valuation of derivatives, hedging strategies, market risk assessment, and ensuring arbitrage-free pricing in financial models. As I learn and grow, I'll continue adding more projects to deepen my understanding of quantitative finance and its applications.
 
 ## 📘 Current Project
 
