@@ -28,3 +28,9 @@ This repository is for my **risk-neutral quantitative projects**, focused on exp
   - Risk-neutral pricing
   - Stochastic processes (Heston model)
   - Machine Learning
+- **Packages**:
+  - Numpy
+  - PyTorch
+  - Matplotlib
+  - SciPy
+  - Sklearn
