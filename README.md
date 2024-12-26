@@ -11,14 +11,14 @@ This repository is for my **risk-neutral quantitative projects**, focused on exp
 ## 🚀 Projects in the Pipeline
 
 ### 1. Machine Learning Pricing of Barrier Options (Honors Research)
-- Generating arbitrage free volatility surfaces from stock path simulations under the Heston model
+- Generating arbitrage free volatility surfaces from stock path simulations under the Heston model.
 - Developing a machine learning framework for pricing barrier options by mapping from an implied volatility surfaces and Barrier level to a Barrier price.
-- Model Validation
+- Model Validation.
 
 ### 2. Machine Learning Pricing of Barrier Options using Physics-Informed Neural Networks (PINNs) (Honors Research Extended)
 - Extending the research on barrier options pricing by leveraging Physics-Informed Neural Networks (PINNs).
 - Embedding the Heston risk-neutral PDE directly into the neural network architecture for improved accuracy.
-- Model Validation
+- Model Validation.
 
 
 ## 🛠 Tools I'm Using
