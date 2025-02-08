@@ -2,7 +2,7 @@
 
 This repository is for my **risk-neutral quantitative projects**. These techniques are mainly used in the valuation of derivatives and hedging strategies. As I gain experience, I'll continue adding projects in finance and related fields.
 
-## 📘 Current Project
+## 📘 Current Projects
 
 ## 1. Barrier Option Pricing under stochastic volatility
 - Using Monte Carlo simulations to price barrier options under the Heston model.
