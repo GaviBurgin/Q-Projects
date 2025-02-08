@@ -5,13 +5,11 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 ## 📘 Current Project
 
 ## 1. Barrier Option Pricing under stochastic volatility
-- see: BarrierOptionPricing-Heston-MonteCarlo.py
 - Using Monte Carlo simulations to price barrier options under the Heston model.
 - Exploring how changes in model parameters affect option prices (to be uloaded soon).
 
 ## 2. Machine Learning Pricing of Barrier Options (Honors Research)
-- see: NN_w_constraints.ipynb
-- Generating arbitrage free volatility surfaces from stock path simulations under the Heston model (to be uloaded soon).
+- Generating arbitrage free volatility surfaces from stock path simulations under the Heston model.
 - Developing a machine learning framework for pricing barrier options by mapping from an implied volatility surfaces and Barrier level to a Barrier price; (K,T,sigma,B) -> Barrier price.
 - Model Validation.
 
