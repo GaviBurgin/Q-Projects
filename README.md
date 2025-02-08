@@ -13,6 +13,10 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Developing a machine learning framework for pricing barrier options by mapping from an implied volatility surfaces and Barrier level to a Barrier price; (K,T,sigma,B) -> Barrier price.
 - Model Validation.
 
+## 3. Solving PDEs using a PINN
+- Heat equation
+- Call option under Black-Scholes
+
 ## 🚀 Projects in the Pipeline
 
 ## Machine Learning Pricing of Barrier Options using Physics-Informed Neural Networks (PINNs) (Honors Research Extended)
