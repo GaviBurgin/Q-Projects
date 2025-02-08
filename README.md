@@ -4,8 +4,8 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 
 ## 📘 Current Projects
 
-## 1. Barrier Option Pricing under stochastic volatility
-- Using Monte Carlo simulations to price barrier options under the Heston model.
+## 1. Option Pricing under stochastic volatility
+- Using Monte Carlo simulations to price call options under the Heston model.
 - Exploring how changes in heston model parameters affect volatility surfaces.
 
 ## 2. Machine Learning Pricing of Barrier Options (Honors Research)
