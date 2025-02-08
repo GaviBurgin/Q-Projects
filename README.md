@@ -9,7 +9,7 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Exploring how changes in heston model parameters affect volatility surfaces.
 
 ## 2. Machine Learning Pricing of Barrier Options (Honors Research)
-- Generating arbitrage free volatility surfaces from stock path simulations under the Heston model.
+- Simulating Barrier option prices and arbitrage free volatility surfaces from stock path simulations under the Heston model.
 - Developing a machine learning framework for pricing barrier options by mapping from an implied volatility surfaces and Barrier level to a Barrier price; (K,T,sigma,B) -> Barrier price.
 - Model Validation.
 
