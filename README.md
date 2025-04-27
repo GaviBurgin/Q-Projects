@@ -16,7 +16,7 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 ## 3. Solving PDEs using Physics-Informed Neural Networks (PINNs)
 - Heat equation
 - Call option under Black-Scholes
-- 
+  
 ## 4. Monte Carlo pricing excercise with varaince reduction 
 - Using Monte Carlo simulations to price Fade-in call/put options under a GBM.
 - Variance reduction techniques employed: Antithetic sampling, importance sampling, End-point stratification.
@@ -30,14 +30,21 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Embedding the Heston risk-neutral PDE directly into the neural network architecture to fix some shortcomings of the previous model.
 - Model Validation.
 
+## Calibratig 1-factor and 3-factor short rate models using kalman filtering (Masters Research project semester 1)
+- Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
+- Incorporate risk-neutral and real world probability measures into the models.
+- Model Validation.
+- Potential use for forecasting and risk management 
+
 
 ## 🛠 Tools I'm Using
-- **Programming Language**: Python
+- **Programming Language**: Python, Matlab
 - **Techniques**:
   - Monte Carlo simulations
   - Risk-neutral pricing
-  - Stochastic processes (Heston model)
+  - Stochastic modelling
   - Machine Learning
+  - variance reduction
 - **Packages**:
   - Numpy
   - PyTorch
