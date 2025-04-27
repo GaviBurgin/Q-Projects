@@ -16,7 +16,13 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 ## 3. Solving PDEs using Physics-Informed Neural Networks (PINNs)
 - Heat equation
 - Call option under Black-Scholes
-
+- 
+## 4. Monte Carlo pricing excercise with varaince reduction 
+- Using Monte Carlo simulations to price Fade-in call/put options under a GBM.
+- Variance reduction techniques employed: Antithetic sampling, importance sampling, End-point stratification.
+- Multiple control variates explored too.
+- Explore trade-off in efficiency vs accuracy of pricing algorithm
+  
 ## 🚀 Projects in the Pipeline
 
 ## Machine Learning Pricing of Barrier Options using Physics-Informed Neural Networks (PINNs) (Honors Research Extended)
