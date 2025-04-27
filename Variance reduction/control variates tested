@@ -1,0 +1,138 @@
+function [fadeIn_est,fadeIn_est_geo,fadeIn_est_vanilla,fadeIn_est_prob1,crude_std,geo_std,vanilla_std,prob1_std] = PricefadeIn_probability(eta, sigma, K, nSims)
+
+% Parameters
+s0 = 100;
+L = 70;
+U = 130;
+r = 0.1;
+T = 1;
+N = 25;
+h = T / (N + 1);
+
+% Payoff function for fade-in
+payoff_fade = @(sT, paths_fixed) exp(-r*T) * max(eta * (sT - K), 0) .* mean((paths_fixed > L) .* (paths_fixed < U), 1);
+
+% alpha code
+n_alpha=1000;
+Z_alpha = randn(N+1, n_alpha);
+paths_alpha = s0 * exp(cumsum((r - 0.5*sigma^2) * h + sigma * sqrt(h) * Z_alpha, 1));
+sT_alpha = paths_alpha(end, :);
+paths_fixed_alpha = paths_alpha(1:end-1, :);
+payoff_fadein = payoff_fade(sT_alpha, paths_fixed_alpha);
+
+% ------------------control variate - geo ---------------------------
+% Compute arithmetic and geometric payoffs for alpha estimation
+paths_alpha=[repmat(s0,1,n_alpha);paths_alpha];
+S_bar_geo = prod(paths_alpha,1).^(1/(N+2));
+payoff_geom = exp(-r*T) * max(S_bar_geo - K, 0);
+
+% Compute exact price of geometric option
+mu = (r - 0.5 * sigma^2) * T / 2;
+sigma_geo = sqrt((sigma^2 * T * (T/(T+h) + 1)) / 6);
+d1 = (log(s0/K) + mu + 0.5*sigma_geo^2) / sigma_geo;
+d2 = d1 - sigma_geo;
+geo_analytical = exp(-r*T) * (s0*exp(mu + 0.5*sigma_geo^2)*normcdf(d1) - K*normcdf(d2));
+
+% Estimate alpha
+cov_geo = cov(payoff_fadein, payoff_geom);
+alpha_geo = -cov_geo(1,2) / var(payoff_geom);
+
+% -----------------control variate - vanilla--------------------------
+payoff_vanilla = exp(-r*T) * max(eta * (sT_alpha - K), 0);
+% Analytical vanilla control variates
+d1 = (log(s0 / K) + (r + 0.5*sigma^2)*T) / (sigma * sqrt(T));
+d2 = d1 - sigma * sqrt(T);
+if eta == 1
+    vanilla_analytical = s0 * normcdf(d1) - K * exp(-r*T) * normcdf(d2);
+elseif eta == -1
+    vanilla_analytical = K * exp(-r*T) * normcdf(-d2) - s0 * normcdf(-d1);
+end
+% Estimate optimal alpha
+cov_vanilla = cov(payoff_vanilla, payoff_fadein);
+alpha_vanilla = -cov_vanilla(1,2) / var(payoff_vanilla);
+
+
+
+% paths
+Z = randn(N+1, nSims);
+paths_1 = s0 * exp(cumsum((r - 0.5*sigma^2)*h + sigma * sqrt(h) * Z, 1));
+
+sT = paths_1(end, :);
+
+paths_fixed_1 = paths_1(1:end-1, :);
+paths_1=[repmat(s0,1,nSims);paths_1];
+
+% crude simulations
+fade_anti_1 = payoff_fade(sT, paths_fixed_1);
+
+
+
+
+fadeIn_est = mean(fade_anti_1);
+crude_std=std(fade_anti_1)/sqrt(nSims);
+
+% Control payoffs
+S_bar_geo_1 = prod(paths_1,1).^(1/(N+2));
+payoff_geom_1 = exp(-r*T) * max(S_bar_geo_1 - K, 0);
+fade_geo = fade_anti_1 + alpha_geo * (payoff_geom_1 - geo_analytical);
+fadeIn_est_geo = mean(fade_geo);
+geo_std=std(fade_geo)/sqrt(nSims);
+
+vanilla_1 = exp(-r*T) * max(eta * (sT - K), 0);
+fade_vanilla = fade_anti_1 + alpha_vanilla * (vanilla_1 - vanilla_analytical);
+fadeIn_est_vanilla = mean(fade_vanilla);
+vanilla_std=std(fade_vanilla)/sqrt(nSims);
+
+
+% -----------------Vectorized Control Variates for Multiple Time Steps--------------------------
+
+% Parameters
+selected_timesteps = 1:25;      % time step indices (1-based)
+step_rows = selected_timesteps + 1;            % adjust to row indices in paths matrix
+num_steps = length(selected_timesteps);
+
+% Time vector for each selected step
+times = selected_timesteps * h;                % size: (1 x num_steps)
+
+% Stock paths at selected times (shape: num_steps x nSims)
+st_alpha = paths_alpha(step_rows, :);          % for control variate estimation
+st_paths = paths_1(step_rows, :);              % for correction on final simulation
+
+% Payoff indicators for each step and path (num_steps x nSims)
+payoff_alpha = (st_alpha > L) .* (st_alpha < U);
+payoff_paths = (st_paths > L) .* (st_paths < U);
+
+% Compute analytical probabilities for all steps (vectorized)
+logU = log(U / s0);
+logL = log(L / s0);
+drift = (r - 0.5 * sigma^2) * times;
+denom = sigma * sqrt(times);
+
+d_U = (logU - drift) ./ denom;
+d_L = (logL - drift) ./ denom;
+prob_analyticals = normcdf(d_U) - normcdf(d_L);   % size: (1 x num_steps)
+
+alpha_array=zeros(1,num_steps);
+
+for i =1:num_steps
+
+    cov_array=cov(payoff_alpha(i,:),payoff_fadein);
+    alpha_array(i)=-cov_array(1,2)/var(payoff_alpha(i,:));
+
+end
+
+alpha_probs=alpha_array;
+
+% Handle NaNs or infinite values (due to zero variance)
+alpha_probs(~isfinite(alpha_probs)) = 0;          % sets NaN or Inf to 0
+
+% Compute residuals and final correction
+residuals = payoff_paths - prob_analyticals';     % (num_steps x nSims), broadcasting
+corrections = alpha_probs * residuals;           % (1 x nSims), matrix multiplication
+
+% Final adjusted payoff and statistics
+fade_prob1 = fade_anti_1 + corrections;           % (1 x nSims)
+fadeIn_est_prob1 = mean(fade_prob1);
+prob1_std = std(fade_prob1) / sqrt(nSims);
+
+end
