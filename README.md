@@ -30,11 +30,11 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Embedding the Heston risk-neutral PDE directly into the neural network architecture to fix some shortcomings of the previous model.
 - Model Validation.
 
-## Calibratig 1-factor and 3-factor short rate models using kalman filtering (Masters Research project semester 1)
+## Calibrating vasicek (1-factor) and AFNS (3-factor) short rate models using kalman filtering (Masters Research project semester 1)
 - Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
-- Incorporate risk-neutral and real world probability measures into the models.
+- Model evolution of short rate under Q and P measure
 - Model Validation.
-- Potential use for forecasting and risk management 
+- Forecasting
 
 
 ## 🛠 Tools I'm Using
