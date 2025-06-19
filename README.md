@@ -23,7 +23,7 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Multiple control variates explored too.
 - Explore trade-off in efficiency vs accuracy of pricing algorithm
 
-## 5. Calibrating vasicek (1-factor) and AFNS (3-factor) short rate models using kalman filtering (Masters Research project semester 1)
+## 5. Term-Structure Modelling: vasicek (1-factor) and AFNS (3-factor) (Masters Research project semester 1)
 - Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
 - Model evolution of short rate under Q and P measure
 - Model Validation.
