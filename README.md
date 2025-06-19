@@ -22,6 +22,12 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Variance reduction techniques employed: Antithetic sampling, importance sampling, End-point stratification.
 - Multiple control variates explored too.
 - Explore trade-off in efficiency vs accuracy of pricing algorithm
+
+## 5. Calibrating vasicek (1-factor) and AFNS (3-factor) short rate models using kalman filtering (Masters Research project semester 1)
+- Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
+- Model evolution of short rate under Q and P measure
+- Model Validation.
+- Forecasting
   
 ## 🚀 Projects in the Pipeline
 
@@ -29,12 +35,6 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Extending the research on barrier options pricing by leveraging Physics-Informed Neural Networks (PINNs).
 - Embedding the Heston risk-neutral PDE directly into the neural network architecture to fix some shortcomings of the previous model.
 - Model Validation.
-
-## Calibrating vasicek (1-factor) and AFNS (3-factor) short rate models using kalman filtering (Masters Research project semester 1)
-- Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
-- Model evolution of short rate under Q and P measure
-- Model Validation.
-- Forecasting
 
 
 ## 🛠 Tools I'm Using
