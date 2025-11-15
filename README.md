@@ -16,20 +16,24 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 ## 3. Solving PDEs using Physics-Informed Neural Networks (PINNs)
 - Heat equation
 - Call option under Black-Scholes
-  
-## 4. Monte Carlo pricing excercise with varaince reduction 
-- Using Monte Carlo simulations to price Fade-in call/put options under a GBM.
-- Variance reduction techniques employed: Antithetic sampling, importance sampling, End-point stratification.
-- Multiple control variates explored too.
-- Explore trade-off in efficiency vs accuracy of pricing algorithm
 
 ## 5. Term-Structure Modelling: vasicek (1-factor) and AFNS (3-factor) (Masters Research project semester 1)
-- Estimating parameters of short-rate models using a combinded kalman-filter and liklihood approach.
+- Calibrating short-rate models using a combinded kalman-filter and liklihood approach.
 - Model evolution of short rate under Q and P measure
 - Model Validation.
 - Forecasting
+
+## 6. xVA Greeks calculation in a Least-Squares Monte Carlo Setting (CVA)
+- Bump and Revalue
+- Path-wise
+- likelihood Ratio
   
 ## 🚀 Projects in the Pipeline
+
+## Volatility Modelling: SSVI
+- Calibration of the SSVI model to SPX data
+- Pricing using local volatility to back out Vanillas
+- Potential to explore Exotics
 
 ## Machine Learning Pricing of Barrier Options using Physics-Informed Neural Networks (PINNs) (Honors Research Extended)
 - Extending the research on barrier options pricing by leveraging Physics-Informed Neural Networks (PINNs).
