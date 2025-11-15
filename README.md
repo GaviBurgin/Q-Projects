@@ -17,13 +17,13 @@ This repository is for my **risk-neutral quantitative projects**. These techniqu
 - Heat equation
 - Call option under Black-Scholes
 
-## 5. Term-Structure Modelling: vasicek (1-factor) and AFNS (3-factor) (Masters Research project semester 1)
+## 4. Term-Structure Modelling: vasicek (1-factor) and AFNS (3-factor) (Masters Research project semester 1)
 - Calibrating short-rate models using a combinded kalman-filter and liklihood approach.
 - Model evolution of short rate under Q and P measure
 - Model Validation.
 - Forecasting
 
-## 6. xVA Greeks calculation in a Least-Squares Monte Carlo Setting (CVA)
+## 5. xVA Greeks calculation in a Least-Squares Monte Carlo Setting (CVA)
 - Bump and Revalue
 - Path-wise
 - likelihood Ratio
